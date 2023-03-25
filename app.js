@@ -16,9 +16,11 @@ app.use(cors())
 // app.use(express.urlencoded({extended:false}))//（有兼容性，仅在4.16.0+版本中可用
 // 导入解析表单的数据的中间件 body-parser
 const parser = require('body-parser')
+const multiparty = require('connect-multiparty')
     // 使用app.use()注册中间件
 app.use(parser.urlencoded({ extended: false }))
 app.use(parser.json())
+app.use(multiparty())
 
 
 // 放在路由之前 封装res.cc 函数 优化 res.send() 代码
